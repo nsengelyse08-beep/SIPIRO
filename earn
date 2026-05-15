@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIPIRO Registration</title>
+
+<style>
+body {font-family: Arial; background:#f4f6f9; display:flex; justify-content:center; align-items:center; height:100vh;}
+.container {background:white; padding:25px; border-radius:12px; width:320px; text-align:center;}
+.logo {font-size:28px; font-weight:bold; color:#007bff;}
+input {width:100%; padding:10px; margin:8px 0;}
+button {width:100%; padding:10px; background:#007bff; color:white; border:none;}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="logo">SIPIRO</div>
+  <p>Registration Form</p>
+
+  <form onsubmit="submitForm(event)">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="text" id="phone" placeholder="Phone Number" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="refCode"></p>
+</div>
+
+<script>
+const scriptURL = "PASTE_YOUR_SCRIPT_URL_HERE";
+
+const params = new URLSearchParams(window.location.search);
+const code = params.get("v");
+
+if(code){
+  document.getElementById("refCode").innerText = "Ref Code: " + code;
+}
+
+function submitForm(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+
+  // SEND TO GOOGLE SHEET
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify({ name, phone, code })
+  });
+
+  // SEND TO WHATSAPP
+  const message = `SIPIRO Registration:%0AName: ${name}%0APhone: ${phone}%0ACode: ${code}`;
+  window.open(`https://wa.me/250XXXXXXXXX?text=${message}`, '_blank');
+
+  alert("Submitted Successfully!");
+}
+</script>
+
+</body>
+</html>
+🔧 What YOU must change
+1. Replace:
+PASTE_YOUR_SCRIPT_URL_HERE
+2. Replace WhatsApp number:
+250XXXXXXXXX
+
+👉 Example (Rwanda):
+
+250790018188
+🎯 RESULT
+
+When user submits:
+
+✔ Data saved in Google Sheet
+✔ WhatsApp opens with message
+✔ You track using ?v=CODE
+✔ Works on phone + computer
+
+🔥 Example link you will use
+https://yourusername.github.io/reg.html?v=CLIENT01
+💡 Next level upgrades (I can do)
+Auto-send WhatsApp (no click)
+Admin dashboard
+Export reports
+Add logo image (real branding)
+SMS instead of WhatsApp
+🚀 Tell me next
+
+Say:
+
+👉 “Connect it for me step by step”
+or
+👉 “Design SIPIRO logo + colors”
+
+I will take you to the final professional level 👍
+
+Where I'm I going to add html in github
+
+Good question — this is the most important step. I’ll guide you exactly where to put your HTML in GitHub.
+
+✅ STEP-BY-STEP: Add your HTML to GitHub
+🔹 1. Create a repository
+Go to GitHub
+Click “+” (top right) → New repository
+Fill:
+Repository name:
+sipiro-site
+Make it Public
+Click Create repository
+🔹 2. Upload your HTML file
+
+After creating repo:
+
+Click “Add file”
+Click “Upload files”
+Drag your file:
+reg.html
+Scroll down → click:
+Commit changes
+🔹 3. Turn on your website (VERY IMPORTANT)
+Go to:
+Settings
+Click:
+Pages
+Under Source, choose:
+Deploy from a branch
+Select:
+Branch: main
+Folder: /root
+Click Save
+🔹 4. Get your website link
+
+After 10–30 seconds, GitHub will show:
+
+https://yourusername.github.io/sipiro-site/
+
+👉 Your page will be:
+
+https://yourusername.github.io/sipiro-site/reg.html
+✅ 5. Use your tracking link
+
+Now you can use:
+
+https://yourusername.github.io/sipiro-site/reg.html?v=ABC123
+🔥 Common mistake (avoid this)
+
+❌ Wrong:
+
+file name = reg.txt
+
+✅ Correct:
+
+reg.html
+🚀 After this works
+
+Tell me:
+
+👉 “It’s online”
+
+Then I will:
+
+Check your link
+Connect WhatsApp correctly
+Make sure data saves 100%
+
+I can even 
+debug it live with you 👍
